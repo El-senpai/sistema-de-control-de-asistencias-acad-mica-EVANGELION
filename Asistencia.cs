@@ -1,17 +1,17 @@
 ﻿using System;
 
-namespace SistemaAsistencia
+namespace SistemaAsistenciaApp
 {
     public class Asistencia
     {
-        private Estudiante estudiante;
+        private string cedulaEstudiante;
         private DateTime fecha;
-        private bool presente;
+        private string estado;
 
-        public Estudiante Estudiante
+        public string CedulaEstudiante
         {
-            get { return estudiante; }
-            set { estudiante = value; }
+            get { return cedulaEstudiante; }
+            set { cedulaEstudiante = value; }
         }
 
         public DateTime Fecha
@@ -20,23 +20,22 @@ namespace SistemaAsistencia
             set { fecha = value; }
         }
 
-        public bool Presente
+        public string Estado
         {
-            get { return presente; }
-            set { presente = value; }
+            get { return estado; }
+            set { estado = value; }
         }
 
-        public Asistencia(Estudiante estudiante, DateTime fecha, bool presente)
+        public Asistencia(string cedulaEstudiante, DateTime fecha, string estado)
         {
-            this.estudiante = estudiante;
+            this.cedulaEstudiante = cedulaEstudiante;
             this.fecha = fecha;
-            this.presente = presente;
+            this.estado = estado;
         }
 
-        public string MostrarAsistencia()
+        public override string ToString()
         {
-            string estado = presente ? "Presente" : "Ausente";
-            return $"{estudiante.Nombre} {estudiante.Apellido} - {fecha.ToShortDateString()} - {estado}";
+            return $"{CedulaEstudiante},{Fecha.ToShortDateString()},{Estado}";
         }
     }
 }

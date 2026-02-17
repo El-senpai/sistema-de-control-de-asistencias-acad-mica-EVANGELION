@@ -1,20 +1,28 @@
 ﻿using System;
 
-namespace SistemaAsistencia
+namespace SistemaAsistenciaApp
 {
-    class Program
+    public class Persona
     {
-        static void Main(string[] args)
+        private string nombre;
+        private string cedula;
+
+        public string Nombre
         {
-            Estudiante est1 = new Estudiante("Julio", "Lechado", "2025001", "Ingeniería en Sistemas");
+            get { return nombre; }
+            set { nombre = value; }
+        }
 
-            Asistencia asistencia1 = new Asistencia(est1, DateTime.Now, true);
+        public string Cedula
+        {
+            get { return cedula; }
+            set { cedula = value; }
+        }
 
-            Console.WriteLine("SISTEMA DE CONTROL DE ASISTENCIA");
-            Console.WriteLine(est1.MostrarInformacion());
-            Console.WriteLine(asistencia1.MostrarAsistencia());
-
-            Console.ReadKey();
+        public Persona(string nombre, string cedula)
+        {
+            this.nombre = nombre;
+            this.cedula = cedula;
         }
     }
 }

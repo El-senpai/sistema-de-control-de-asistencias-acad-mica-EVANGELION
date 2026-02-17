@@ -1,17 +1,10 @@
 ﻿using System;
 
-namespace SistemaAsistencia
+namespace SistemaAsistenciaApp
 {
     public class Estudiante : Persona
     {
-        private string carnet;
         private string carrera;
-
-        public string Carnet
-        {
-            get { return carnet; }
-            set { carnet = value; }
-        }
 
         public string Carrera
         {
@@ -19,17 +12,15 @@ namespace SistemaAsistencia
             set { carrera = value; }
         }
 
-        public Estudiante(string nombre, string apellido, string carnet, string carrera)
-            : base(nombre, apellido)
+        public Estudiante(string nombre, string cedula, string carrera)
+            : base(nombre, cedula)
         {
-            this.carnet = carnet;
             this.carrera = carrera;
         }
 
-        public override string MostrarInformacion()
+        public override string ToString()
         {
-            return base.MostrarInformacion() +
-                   $" | Carnet: {carnet} | Carrera: {carrera}";
+            return $"{Nombre},{Cedula},{Carrera}";
         }
     }
 }
